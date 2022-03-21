@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 03:31:26 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 01:04:13 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/22 04:45:13 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,47 +25,44 @@ t_stack	*newstack(int n)
 	return (hold);
 }
 
-void	stack_addback(t_stack **lst, t_stack *new)
+void	stack_addback(t_stack **stk, t_stack *new)
 {
 	t_stack	*next;
 
-	if (lst && new)
+	if (stk && new)
 	{
-		if (*lst)
+		if (*stk)
 		{
-			next = ft_stacklast(*lst);
+			next = ft_stacklast(*stk);
 			next->next = new;
 		}
 		else
-			*lst = new;
+			*stk = new;
 	}
 }
 
-int	ft_stacksize(t_stack *lst)
+int	ft_stacksize(t_stack *stk)
 {
 	int	i;
 
 	i = 0;
-	while (lst)
+	while (stk)
 	{
-		lst = lst->next;
+		stk = stk->next;
 		i++;
 	}
 	return (i);
 }
 
-int	ft_stacksize_n(t_stack *lst, t_stack *last)
+int	ft_stacksize_n(t_stack *stk, t_stack *last)
 {
 	int	i;
 
 	i = 0;
-	while (lst && lst != last)
+	while (stk && stk != last)
 	{
 		i++;
-		if (lst == last)
-			break ;
-		lst = lst->next;
-		
+		stk = stk->next;	
 	}
 	return (i);
 }

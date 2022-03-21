@@ -1,0 +1,17 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.ou
+*.a
+
+#tester folder#
+##################
+/prinfttester
+/bonus
+/tester
+main.c

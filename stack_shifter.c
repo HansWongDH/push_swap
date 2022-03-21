@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:40:01 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/20 22:04:23 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/22 04:48:24 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,21 @@ int	r_ab(t_stack **stack)
 	return (1);
 }
 
-int	s_ab(t_stack **lst)
+int	s_ab(t_stack **stk)
 {
 	t_stack	*temp;
 	t_stack	*tail;
 	char	c;
 
-	if ((*lst)->stk == 1)
+	if ((*stk)->stk == 1)
 		c = 'a';
 	else
 		c = 'b';
-	tail = (*lst)->next->next;
-	temp = (*lst);
-	*lst = (*lst)->next;
-	(*lst)->next = temp;
-	(*lst)->next->next = tail;
+	tail = (*stk)->next->next;
+	temp = (*stk);
+	*stk = (*stk)->next;
+	(*stk)->next = temp;
+	(*stk)->next->next = tail;
 	printf("s%c\n", c);
 }
 

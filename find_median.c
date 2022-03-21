@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:19:09 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 01:17:03 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/22 03:10:47 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	issorted(t_stack *stk)
 
 int	issortedtail(t_stack *lst, int len)
 {
-	while (len > 0 && lst)
+	while (len > 0 && lst && lst->next)
 	{
 		if (lst->stk == 1 && lst->num > lst->next->num)
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 03:32:35 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 01:56:35 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/22 04:14:00 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	three_case_part(t_stack **lst, t_stack *last)
 		tail = find_highest(*lst, last);
 	else
 		tail = find_lowest(*lst, last);
-	//printf("******three case! %d \n", tail->num);
 	if (*lst == tail)
 		s_ab(lst);
 	if (mid == tail)

@@ -6,17 +6,17 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:25:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 03:42:39 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/22 04:45:47 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap2.h"
+#include "push_swap.h"
 
-void	push_number(t_stack **lsta, t_stack **lstb, t_add **info)
+void	push_number(t_stack **stka, t_stack **stkb, t_add **info)
 {
 	while ((*info)->len > 0)
 	{
-		p_ab(lsta, lstb);
+		p_ab(stka, stkb);
 		(*info)->len--;
 	}
 	delete_add(info);
@@ -34,21 +34,17 @@ t_stack	*partition_a(t_stack **stka, t_stack **stkb, t_add **a)
 	len = (*a)->len;
 	pivot = find_median(*stka, len);
 	i = 0;
-	if (*stkb)
-		tail = *stkb;
-	else
-		tail = NULL;
-	while (len > 0)
+	tail = *stkb;
+	while (len-- > 0 && (*a)->len > 3)
 	{
 		if ((*stka)->num < pivot)
 			(*a)->len -= p_ab(stka, stkb);
 		else if (*stka != last)
 			i += r_ab(stka);
-		len--;
 	}
 	while (i-- > 0 && (*a)->tail)
 	{
-		if ((*stka)->num == pivot)
+		if ((*stka)->num == pivot && (*a)->len > 3)
 			(*a)->len -= p_ab(stka, stkb);
 		rr_ab(stka);
 	}
@@ -67,17 +63,13 @@ t_stack	*partition_b(t_stack **stka, t_stack **stkb, t_add **b)
 	len = (*b)->len;
 	pivot = find_median(*stka, len);
 	i = 0;
-	if (*stkb)
-		tail = *stkb;
-	else
-		tail = NULL;
-	while (len > 0)
+	tail = *stkb;
+	while (len-- > 0)
 	{
 		if ((*stka)->num >= pivot)
 			(*b)->len -= p_ab(stka, stkb);
 		else if (*stka != last)
 			i += r_ab(stka);
-		len--;
 	}
 	while (i-- > 0 && (*b)->tail)
 		rr_ab(stka);

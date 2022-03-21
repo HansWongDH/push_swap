@@ -6,11 +6,11 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 03:29:27 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 02:10:08 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/22 04:49:29 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap2.h"
+#include "push_swap.h"
 
 /*void	split_a(t_stack **stka, t_stack **stkb, t_add **a, t_add **b)
 {
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 	int		size;
 
 	i = 1;
+	size = 0;
 	stacka = NULL;
 	stackb = NULL;
 	a = NULL;
@@ -58,8 +59,6 @@ int	main(int argc, char **argv)
 			i++;
 		}
 	}
-	size = ft_stacksize_n(stacka, ft_stacklast(stacka));
-	//find_median(stacka, ft_stacklast(stacka));
 	ft_add_front(&a, ft_new_add(NULL, ft_stacksize(stacka)));
 	//split_a(&stacka, &stackb, &a, &b);
 	sort(&stacka, &stackb, &a, &b);
