@@ -6,13 +6,13 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:00:59 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 14:23:36 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/22 22:33:42 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
+# include "../../libs/ft_printf.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -57,4 +57,6 @@ int		issorted(t_stack *stk);
 void	delete_add(t_add **add);
 int		ft_checkdup(t_stack *stack);
 int		issortedtail(t_stack *stk, int len);
+int		rot_a(t_stack **stk, int pivot, t_add *a);
+int		rot_b(t_stack **stk, int pivot, t_add *b);
 #endif
