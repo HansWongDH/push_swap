@@ -6,11 +6,11 @@
 #    By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 18:02:33 by wding-ha          #+#    #+#              #
-#    Updated: 2022/03/23 16:35:55 by wding-ha         ###   ########.fr        #
+#    Updated: 2022/03/23 17:47:27 by wding-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= pushswap
+NAME			= push_swap
 #############################################################
 CC				= gcc
 CFLAGS			= -Wall -Wextra -Werror
@@ -20,7 +20,7 @@ INC				= -Iinclude -I$(LIBFT_DIR)
 LIBFT_DIR		= libs/libft
 LIB				= -L$(LIBFT_DIR) -lft
 SRC_DIR			= src/push_swap/
-S_SRCS			= $(SRC_DIR)push_swap.c $(SRC_DIR)find_median.c $(SRC_DIR)small_case.c $(SRC_DIR)stack_shifter.c\
+S_SRCS			= $(SRC_DIR)push_swap.c $(SRC_DIR)find_median.c $(SRC_DIR)small_case.c $(SRC_DIR)stack_shifter.c $(SRC_DIR)error.c\
 				$(SRC_DIR)smart_rotate.c $(SRC_DIR)stack_function.c $(SRC_DIR)sort_function.c $(SRC_DIR)address_function.c
 
 
