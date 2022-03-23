@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:25:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 16:18:19 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:23:15 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,6 @@ void	sort(t_stack **stka, t_stack **stkb, t_add **a, t_add **b)
 	}
 	if (!issorted(*stka) || *stkb)
 		sort(stka, stkb, a, b);
+	if (issorted(*stka) && !*stkb)
+		return ;
 }

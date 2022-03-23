@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 07:29:06 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 15:26:11 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 20:49:59 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		get_next_line(int fd, char **line);
+int		ft_strcmp(const char *s1, const char *s2);
+int		long	ft_atol(const char *str);
 
 #endif

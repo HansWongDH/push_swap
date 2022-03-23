@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:00:59 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 17:29:55 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 20:37:11 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int		ft_stacksize_n(t_stack *stk, t_stack *last);
 void	stack_addback(t_stack **stk, t_stack *new);
 void	bubble_sort(int *arr, int size);
 int		find_median(t_stack *stk, int size);
-int		ft_stacksize_n(t_stack *stk, t_stack *last);
 t_stack	*ft_stacklast(t_stack *stk);
 t_stack	*ft_iter_stop(t_stack *stk, t_stack *last);
 int		r_ab(t_stack **stack);

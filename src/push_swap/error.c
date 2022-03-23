@@ -6,37 +6,30 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:47:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 17:54:42 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 20:11:06 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atolong(const char *str)
+int	ft_checkdup(t_stack *stack)
 {
-	long	i;
-	int		sign;
+	t_stack	*stk1;
+	t_stack	*stk2;
 
-	sign = 1;
-	i = 0;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '+' || *str == '-')
+	stk1 = stack;
+	while (stk1)
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		stk2 = stk1->next;
+		while (stk2)
+		{
+			if (stk1->num == stk2->num)
+				return (0);
+			stk2 = stk2->next;
+		}
+		stk1 = stk1->next;
 	}
-	while (*str >= 48 && *str <= 57)
-	{
-		i = i * 10 + (*str - '0');
-		str++;
-		if (i != (i * 2) / 2 && sign > 0)
-			return (-1);
-		if (i != (i * 2) / 2 && sign < 0)
-			return (0);
-	}
-	return (sign * i);
+	return (1);
 }
 
 int	ft_checkdigit(char **str)
@@ -66,7 +59,7 @@ int	ft_isover(char **str)
 	i = 1;
 	while (str[i])
 	{
-		if (ft_atolong(str[i]) > 2147483647 || ft_atolong(str[i]) < -2147483648)
+		if (ft_atol(str[i]) > 2147483647 || ft_atol(str[i]) < -2147483648)
 			return (0);
 		i++;
 	}
