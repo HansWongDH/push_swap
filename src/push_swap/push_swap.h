@@ -6,14 +6,14 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:00:59 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 22:33:42 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:32:03 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../../libs/ft_printf.h"
-# include <stdio.h>
+
+# include "libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -59,4 +59,6 @@ int		ft_checkdup(t_stack *stack);
 int		issortedtail(t_stack *stk, int len);
 int		rot_a(t_stack **stk, int pivot, t_add *a);
 int		rot_b(t_stack **stk, int pivot, t_add *b);
+int		rotation(t_stack **stka, t_stack **stkb, t_add **a, int pivot);
+
 #endif

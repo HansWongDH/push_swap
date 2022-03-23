@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:27:55 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 20:44:21 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:25:42 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	srcm = (unsigned char *)src;
 	while (i < n)
 	{
-		dstm[i] =srcm[i];
+		dstm[i] = srcm[i];
 		if (dstm[i] == (unsigned char)c)
 			return (dest + i + 1);
 		i++;

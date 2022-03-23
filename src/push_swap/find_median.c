@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:19:09 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 03:10:47 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:21:06 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,3 @@ int	issortedtail(t_stack *lst, int len)
 	}
 	return (1);
 }
-

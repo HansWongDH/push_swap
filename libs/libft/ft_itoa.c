@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:40:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/06/03 19:27:18 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:25:23 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_itoa(int n)
 		hold[0] = '0';
 	while (num)
 	{
-		hold[i-- -1] = '0' + (num % 10);
+		hold[i-- - 1] = '0' + (num % 10);
 		num /= 10;
 	}
 	return (hold);

@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:25:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 22:48:56 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:18:19 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,12 @@ void	push_number(t_stack **stka, t_stack **stkb, t_add **info)
 t_stack	*partition_a(t_stack **stka, t_stack **stkb, t_add **a)
 {
 	t_stack	*tail;
-	t_stack	*last;
 	int		i;
-	int		len;
 	int		pivot;
 
-	last = ft_iter_stop(*stka, (*a)->tail);
-	len = (*a)->len;
-	pivot = find_median(*stka, len);
-	i = 0;
+	pivot = find_median(*stka, (*a)->len);
 	tail = *stkb;
-	while (len-- > 0 && (*a)->len > 3)
-	{
-		if ((*stka)->num < pivot)
-			(*a)->len -= p_ab(stka, stkb);
-		else if (!(*a)->tail)
-			rot_a(stka, pivot, *a);
-		else if (*stka != last)
-			i += r_ab(stka);
-	}
+	i = rotation(stka, stkb, a, pivot);
 	while (i-- > 0 && (*a)->tail)
 	{
 		if ((*stka)->num == pivot && (*a)->len > 3)

@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:05:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 14:11:09 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:22:43 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_add	*ft_new_add(t_stack *tail, int len)
 {
 	t_add	*new;
 
-	new = (t_add *)malloc(sizeof(new));
+	new = (t_add *)malloc(sizeof(*new));
 	if (!new)
 		return (NULL);
 	new->len = len;
@@ -44,5 +44,34 @@ void	delete_add(t_add **add)
 		(*add)->nxt = NULL;
 		free (*add);
 		*add = temp;
+	}
+}
+
+t_stack	*newstack(int n)
+{
+	t_stack	*hold;
+
+	hold = (t_stack *)malloc(sizeof(*hold));
+	if (!hold)
+		return (NULL);
+	hold->num = n;
+	hold->stk = 1;
+	hold->next = NULL;
+	return (hold);
+}
+
+void	stack_addback(t_stack **stk, t_stack *new)
+{
+	t_stack	*next;
+
+	if (stk && new)
+	{
+		if (*stk)
+		{
+			next = ft_stacklast(*stk);
+			next->next = new;
+		}
+		else
+			*stk = new;
 	}
 }

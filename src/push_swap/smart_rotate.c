@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:11:59 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 22:44:33 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:17:23 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,25 @@ int	rot_b(t_stack **stk, int pivot, t_add *b)
 		while ((*stk)->num < pivot)
 			rr_ab(stk);
 	return (1);
+}
+
+int	rotation(t_stack **stka, t_stack **stkb, t_add **a, int pivot)
+{
+	int		len;
+	int		i;
+	t_stack	*last;
+
+	last = ft_iter_stop(*stka, (*a)->tail);
+	len = (*a)->len;
+	i = 0;
+	while (len-- > 0 && (*a)->len > 3)
+	{
+		if ((*stka)->num < pivot)
+			(*a)->len -= p_ab(stka, stkb);
+		else if (!(*a)->tail)
+			rot_a(stka, pivot, *a);
+		else if (*stka != last)
+			i += r_ab(stka);
+	}
+	return (i);
 }

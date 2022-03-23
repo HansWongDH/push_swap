@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 03:29:27 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/22 22:38:51 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:31:56 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 	{
 		while (i < argc)
 		{
-			stack_addback(&stacka, newstack(atoi(argv[i])));
+			stack_addback(&stacka, newstack(ft_atoi(argv[i])));
 			i++;
 		}
 	}
