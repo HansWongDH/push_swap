@@ -6,9 +6,10 @@
 #    By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 18:02:33 by wding-ha          #+#    #+#              #
-#    Updated: 2022/03/25 00:08:57 by wding-ha         ###   ########.fr        #
+#    Updated: 2022/03/25 01:40:37 by wding-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME			= push_swap
 B_NAME			= checker
@@ -33,23 +34,22 @@ B_OBJS			= $(B_SRCS:.c=.o)
 all:			$(NAME) $(B_NAME)
 
 $(NAME):		$(OBJS)
-	make re -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $(INC) -o $(NAME) $(MAIN) $(OBJS) $(LIB)
-
+	@make re -C $(LIBFT_DIR)
+	@$(CC) $(CFLAGS) $(INC) -o $(NAME) $(MAIN) $(OBJS) $(LIB)
+	
 $(B_NAME):		$(B_OBJS)
-	make re -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $(B_INC) -o $(B_NAME) $(B_MAIN) $(B_OBJS) $(LIB)
+	@make re -C $(LIBFT_DIR)
+	@$(CC) $(CFLAGS) $(B_INC) -o $(B_NAME) $(B_MAIN) $(B_OBJS) $(LIB)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
-
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@ -s
 clean:
-	$(RM) $(OBJS) $(B_OBJS)
-	make clean -C $(LIBFT_DIR)
+	@$(RM) $(OBJS) $(B_OBJS)
+	@make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	$(RM) $(NAME) $(B_NAME)
-	make fclean -C $(LIBFT_DIR)
+	@$(RM) $(NAME) $(B_NAME)
+	@make fclean -C $(LIBFT_DIR)
 
 re: fclean
 
