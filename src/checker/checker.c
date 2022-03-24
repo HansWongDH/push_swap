@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:08:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 18:16:45 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 20:06:26 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	stka = NULL;
 	stkb = NULL;
-	if (argc <= 2)
+	if (argc <= 1)
 		return (error_message(&stka, &stkb, 0));
 	if (argc > 1)
 	{

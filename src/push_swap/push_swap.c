@@ -6,11 +6,12 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 03:29:27 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 18:29:47 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 20:08:06 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -27,7 +28,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc > 1)
 	{
-		if (!ft_checkdigit(argv) || !ft_isover(argv) || argc <= 2)
+		if (!ft_checkdigit(argv) || !ft_isover(argv))
 			return (error_message(&stka, &stkb, 0));
 		while (i < argc)
 			stack_addback(&stka, newstack(ft_atoi(argv[i++])));

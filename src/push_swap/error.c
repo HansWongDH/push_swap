@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:47:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 18:26:23 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:50:07 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	ft_checkdigit(char **str)
 	while (str[i])
 	{
 		j = 0;
-		while (str[i][j])
-		{
-			if (!ft_isdigit(str[i][j]))
-				return (0);
+		if (str[i][j] == '-')
 			j++;
-		}
+		if (!ft_isdigit(str[i][j]))
+			return (0);
+		while (ft_isdigit(str[i][j]))
+			j++;
 		i++;
 	}
 	return (1);
@@ -89,6 +89,6 @@ int	error_message(t_stack **stka, t_stack **stkb, int i)
 	if (*stka || *stkb)
 		free_stack(stka, stkb);
 	if (i == 0)
-		write(2, "Error\n", 7);
+		write(2, "Error\n", 6);
 	return (0);
 }

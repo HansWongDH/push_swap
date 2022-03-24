@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 07:29:06 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 17:40:07 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:52:40 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int		get_next_line(int fd, char **line);
 int		ft_strcmp(const char *s1, const char *s2);
 int		long	ft_atol(const char *str);
 void	freestr(char **str);
+void	ft_putstr(char *s);
 
 #endif

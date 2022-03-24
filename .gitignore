@@ -13,5 +13,6 @@
 ##################
 /prinfttester
 /bonus
-/tester
+/tester*
 main.c
+.gitignore
