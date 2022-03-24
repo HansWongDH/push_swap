@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:47:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 19:50:07 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/25 00:02:46 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,37 +32,24 @@ int	ft_checkdup(t_stack *stack)
 	return (1);
 }
 
-int	ft_checkdigit(char **str)
+int	ft_checkdigit(char *str)
 {
 	int	i;
-	int	j;
 
-	i = 1;
-	while (str[i])
-	{
-		j = 0;
-		if (str[i][j] == '-')
-			j++;
-		if (!ft_isdigit(str[i][j]))
-			return (0);
-		while (ft_isdigit(str[i][j]))
-			j++;
+	i = 0;
+	if (str[i] == '-')
 		i++;
-	}
+	if (!ft_isdigit(str[i]))
+		return (0);
+	while (ft_isdigit(str[i]))
+		i++;
 	return (1);
 }
 
-int	ft_isover(char **str)
+int	ft_isover(char *str)
 {
-	int	i;
-
-	i = 1;
-	while (str[i])
-	{
-		if (ft_atol(str[i]) > 2147483647 || ft_atol(str[i]) < -2147483648)
-			return (0);
-		i++;
-	}
+	if (ft_atol(str) > 2147483647 || ft_atol(str) < -2147483648)
+		return (0);
 	return (1);
 }
 

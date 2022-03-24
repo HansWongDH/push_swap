@@ -6,7 +6,7 @@
 #    By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 18:02:33 by wding-ha          #+#    #+#              #
-#    Updated: 2022/03/24 18:27:39 by wding-ha         ###   ########.fr        #
+#    Updated: 2022/03/25 00:08:57 by wding-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,10 @@ LIB				= -L$(LIBFT_DIR) -lft
 SRC_DIR			= src/push_swap/
 CHK_DIR			= src/checker/
 S_SRCS			= $(SRC_DIR)push_swap.c $(SRC_DIR)find_median.c $(SRC_DIR)small_case.c $(SRC_DIR)stack_shifter.c $(SRC_DIR)error.c\
-				$(SRC_DIR)smart_rotate.c $(SRC_DIR)stack_function.c $(SRC_DIR)sort_function.c $(SRC_DIR)address_function.c
+				$(SRC_DIR)smart_rotate.c $(SRC_DIR)stack_function.c $(SRC_DIR)sort_function.c $(SRC_DIR)address_function.c\
+				$(SRC_DIR)stack_build.c
 B_SRCS			= $(CHK_DIR)checker.c $(SRC_DIR)find_median.c $(CHK_DIR)stack_command.c $(SRC_DIR)stack_function.c $(SRC_DIR)error.c\
-				$(SRC_DIR)address_function.c  $(CHK_DIR)checker_util.c $(SRC_DIR)stack_shifter.c
+				$(SRC_DIR)address_function.c  $(CHK_DIR)checker_util.c $(SRC_DIR)stack_shifter.c $(SRC_DIR)stack_build.c
 OBJS			= $(S_SRCS:.c=.o)
 B_OBJS			= $(B_SRCS:.c=.o)
 

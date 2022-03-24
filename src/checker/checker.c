@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:08:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 20:06:26 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/25 00:27:32 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,13 @@ int	main(int argc, char **argv)
 	t_stack	*stka;
 	t_stack	*stkb;
 	char	*str;
-	int		i;
 
-	i = 1;
 	stka = NULL;
 	stkb = NULL;
 	if (argc <= 1)
 		return (error_message(&stka, &stkb, 0));
 	if (argc > 1)
-	{
-		if (!ft_checkdigit(argv) || !ft_isover(argv))
-			return (error_message(&stka, &stkb, 0));
-		while (i < argc)
-			stack_addback(&stka, newstack(ft_atoi(argv[i++])));
-	}
+		stack_build(argc, argv, &stka, &stkb);
 	if (!ft_checkdup(stka) || issorted(stka))
 		return (error_message(&stka, &stkb, 0));
 	while (get_next_line(0, &str) > 0)

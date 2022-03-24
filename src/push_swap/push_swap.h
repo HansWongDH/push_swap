@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:00:59 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 18:26:54 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/25 00:00:03 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ int		issortedtail(t_stack *stk, int len);
 int		rot_a(t_stack **stk, int pivot, t_add *a);
 int		rot_b(t_stack **stk, int pivot, t_add *b);
 int		rotation(t_stack **stka, t_stack **stkb, t_add **a, int pivot);
-int		ft_checkdigit(char **str);
+int		ft_checkdigit(char *str);
 void	free_stack(t_stack **stacka, t_stack **stackb);
 int		error_message(t_stack **stka, t_stack **stkb, int i);
 void	free_add(t_add **add_a, t_add **add_b);
-int		ft_isover(char **str);
+int		ft_isover(char *str);
+int	stack_build(int	argc, char **argv, t_stack **stka, t_stack **stkb);
 
 #endif
