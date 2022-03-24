@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:25:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 23:15:04 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/25 00:54:20 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ t_stack	*partition_b(t_stack **stka, t_stack **stkb, t_add **b)
 	{
 		if ((*stka)->num >= pivot)
 			(*b)->len -= p_ab(stka, stkb);
-		// else if (!(*b)->tail && (*b)->len > 3)
-		// 	rot_b(stka, pivot, *b);
+		else if (!(*b)->tail && (*b)->len > 3)
+			rot_b(stka, pivot, *b);
 		else if (*stka != last)
 			i += r_ab(stka);
 	}

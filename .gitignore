@@ -16,3 +16,4 @@
 /tester*
 main.c
 .gitignore
+*.log
