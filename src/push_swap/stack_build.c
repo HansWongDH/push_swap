@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:28:22 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/25 01:21:21 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/25 02:23:26 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	stack_build(int argc, char **argv, t_stack **stka, t_stack **stkb)
 		{
 			if (!ft_checkdigit(hold[j]) || !ft_isover(hold[j]))
 				return (error_message(stka, stkb, 0));
-			stack_addback(stka, newstack(ft_atoi(hold[j++])));
+			stack_addback(stka, newstack(ft_atoi(hold[j])));
+			free(hold[j++]);
 		}
 		free(hold);
 	}
