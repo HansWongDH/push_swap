@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:05:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 17:50:44 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:30:33 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,10 @@ void	delete_add(t_add **add)
 	}
 }
 
-t_stack	*newstack(int n)
+void	free_add(t_add **add_a, t_add **add_b)
 {
-	t_stack	*hold;
-
-	hold = malloc(sizeof(t_stack));
-	if (!hold)
-		return (NULL);
-	hold->num = n;
-	hold->stk = 1;
-	hold->next = NULL;
-	return (hold);
-}
-
-void	stack_addback(t_stack **stk, t_stack *new)
-{
-	t_stack	*next;
-
-	if (stk && new)
-	{
-		if (*stk)
-		{
-			next = ft_stacklast(*stk);
-			next->next = new;
-		}
-		else
-			*stk = new;
-	}
+	while (*add_a)
+		delete_add(add_a);
+	while (*add_b)
+		delete_add(add_b);
 }

@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:47:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 20:11:06 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:26:23 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,22 +66,29 @@ int	ft_isover(char **str)
 	return (1);
 }
 
-void	free_stack(t_stack **stack)
+void	free_stack(t_stack **stka, t_stack **stkb)
 {
 	t_stack	*temp;
 
-	while (*stack)
+	while (*stka)
 	{
-		temp = (*stack)->next;
-		free(*stack);
-		*stack = temp;
+		temp = (*stka)->next;
+		free(*stka);
+		*stka = temp;
+	}
+	while (*stkb)
+	{
+		temp = (*stkb)->next;
+		free(*stkb);
+		*stkb = temp;
 	}
 }
 
-void	free_add(t_add **add)
+int	error_message(t_stack **stka, t_stack **stkb, int i)
 {
-	while (*add)
-	{
-		delete_add(add);
-	}
+	if (*stka || *stkb)
+		free_stack(stka, stkb);
+	if (i == 0)
+		write(2, "Error\n", 7);
+	return (0);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_shifter.c                                    :+:      :+:    :+:   */
+/*   stack_command.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:40:01 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 20:35:08 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 16:56:21 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	p_ab(t_stack **stacka, t_stack **stackb)
+int	p_com(t_stack **stacka, t_stack **stackb)
 {
 	t_stack	*temp;
 
@@ -29,7 +29,7 @@ int	p_ab(t_stack **stacka, t_stack **stackb)
 	return (1);
 }
 
-int	r_ab(t_stack **stack)
+int	r_com(t_stack **stack)
 {
 	t_stack	*temp;
 	t_stack	*last;
@@ -44,7 +44,7 @@ int	r_ab(t_stack **stack)
 	return (1);
 }
 
-int	s_ab(t_stack **stk)
+int	s_com(t_stack **stk)
 {
 	t_stack	*temp;
 	t_stack	*tail;
@@ -59,7 +59,7 @@ int	s_ab(t_stack **stk)
 	return (1);
 }
 
-int	rr_ab(t_stack **stack)
+int	rr_com(t_stack **stack)
 {
 	t_stack	*temp;
 	t_stack	*last;

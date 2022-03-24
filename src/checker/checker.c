@@ -6,108 +6,73 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:08:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 21:14:26 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:16:45 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	rev_function(t_stack **stka, t_stack **stkb, char *str)
+int	checker(t_stack **stka, t_stack **stkb, char **str)
 {
-	if (ft_strcmp(str, "ra\n"))
-		r_ab(stka);
-	if (ft_strcmp(str, "rb\n"))
-		r_ab(stka);
-	if (ft_strcmp(str, "rr\n"))
-	{
-		r_ab(stka);
-		r_ab(stkb);
-	}
-}
-
-void	s_function(t_stack **stka, t_stack **stkb, char *str)
-{
-	if (ft_strcmp(str, "sa\n"))
-		s_ab(stka);
-	if (ft_strcmp(str, "sb\n"))
-		s_ab(stka);
-	if (ft_strcmp(str, "ss\n"))
-	{
-		s_ab(stka);
-		s_ab(stkb);
-	}
-}
-
-void	rrev_function(t_stack **stka, t_stack **stkb, char *str)
-{
-	if (ft_strcmp(str, "rra\n"))
-		rr_ab(stka);
-	if (ft_strcmp(str, "rra\n"))
-		rr_ab(stka);
-	if (ft_strcmp(str, "rrr\n"))
-	{
-		rr_ab(stka);
-		rr_ab(stkb);
-	}
-}
-
-int	checker(t_stack **stka, t_stack **stkb, char *str)
-{
-	if (ft_strcmp(str, "sa\n") || ft_strcmp(str, "sb\n") || ft_strcmp(str, "ss\n"))
-		s_function(stka, stkb, str);
-	else if (ft_strcmp(str, "ra\n") || ft_strcmp(str, "rb\n"))
-		rev_function(stka, stkb, str);
-	else if (ft_strcmp(str, "rr\n"))
-		rev_function(stka, stkb, str);
-	else if (ft_strcmp(str, "rra\n") || ft_strcmp(str, "rrb\n"))
-		rrev_function(stka, stkb, str);
-	else if (ft_strcmp(str, "rrr\n"))
-		rrev_function(stka, stkb, str);
-	else if (ft_strcmp(str, "sa\n"))
-		s_ab(stka);
-	else if (ft_strcmp(str, "sb\n"))
-		s_ab(stkb);
+	if (!ft_strcmp(*str, "sa") || !ft_strcmp(*str, "sb"))
+		s_function(stka, stkb, *str);
+	else if (!ft_strcmp(*str, "ss"))
+		s_function(stka, stkb, *str);
+	else if (!ft_strcmp(*str, "ra") || !ft_strcmp(*str, "rb"))
+		rev_function(stka, stkb, *str);
+	else if (!ft_strcmp(*str, "rr"))
+		rev_function(stka, stkb, *str);
+	else if (!ft_strcmp(*str, "rra") || !ft_strcmp(*str, "rrb"))
+		rrev_function(stka, stkb, *str);
+	else if (!ft_strcmp(*str, "rrr"))
+		rrev_function(stka, stkb, *str);
+	else if (!ft_strcmp(*str, "pa"))
+		p_com(stkb, stka);
+	else if (!ft_strcmp(*str, "pb"))
+		p_com(stka, stkb);
 	else
+	{
+		freestr(str);
 		return (0);
+	}
+	freestr(str);
 	return (1);
+}
+
+int	sorted_message(t_stack **stka, t_stack **stkb)
+{
+	if (!issorted(*stka) || *stkb)
+		write(1, "KO\n", 4);
+	else
+		write(1, "OK\n", 4);
+	return (error_message(stka, stkb, 1));
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stacka;
-	t_stack	*stackb;
+	t_stack	*stka;
+	t_stack	*stkb;
 	char	*str;
-	char	buf[1000];
 	int		i;
-	int		fd;
 
 	i = 1;
-	stacka = NULL;
-	stackb = NULL;
-	str = "haha";
-	fd = 1;
+	stka = NULL;
+	stkb = NULL;
+	if (argc <= 2)
+		return (error_message(&stka, &stkb, 0));
 	if (argc > 1)
 	{
-		if (!ft_checkdigit(argv) || !ft_isover(argv) || argc <= 2)
-			return (write(2, "Error\n", 7));
+		if (!ft_checkdigit(argv) || !ft_isover(argv))
+			return (error_message(&stka, &stkb, 0));
 		while (i < argc)
-			stack_addback(&stacka, newstack(ft_atoi(argv[i++])));
+			stack_addback(&stka, newstack(ft_atoi(argv[i++])));
 	}
-	if (!ft_checkdup(stacka))
-		return (write(2, "Error\n", 7));
-	while (fd)
-		fd = read(0, buf, 20);
-	while (get_next_line(fd, &str))
+	if (!ft_checkdup(stka) || issorted(stka))
+		return (error_message(&stka, &stkb, 0));
+	while (get_next_line(0, &str) > 0)
 	{
-		if (!checker(&stacka, &stackb, str))
-		{
-			free_stack(&stacka);
-			free_stack(&stackb);
-			return (0);
-		}
+		if (!checker(&stka, &stkb, &str))
+			return (error_message(&stka, &stkb, 0));
 	}
-	if (!issorted(stacka))
-		return (write(2, "not sorted\n", 7));
-	else
-		return (write(1, "Genius\n", 8));
+	return (sorted_message(&stka, &stkb));
 }

@@ -6,32 +6,32 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:40:01 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 16:31:46 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:30:16 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	p_ab(t_stack **stacka, t_stack **stackb)
+int	p_ab(t_stack **stka, t_stack **stkb)
 {
 	t_stack	*temp;
 	char	*str;
 
-	if (!*stacka)
+	if (!*stka)
 		return (0);
-	temp = (*stacka)->next;
-	(*stacka)->next = *stackb;
-	*stackb = *stacka;
-	*stacka = temp;
-	if ((*stackb)->stk == 1)
+	temp = (*stka)->next;
+	(*stka)->next = *stkb;
+	*stkb = *stka;
+	*stka = temp;
+	if ((*stkb)->stk == 1)
 	{
 		str = "pb\n";
-		(*stackb)->stk = 2;
+		(*stkb)->stk = 2;
 	}
 	else
 	{
 		str = "pa\n";
-		(*stackb)->stk = 1;
+		(*stkb)->stk = 1;
 	}
 	ft_putstr_fd(str, 1);
 	return (1);
@@ -102,4 +102,15 @@ int	rr_ab(t_stack **stack)
 	last->next = temp;
 	ft_putstr_fd(str, 1);
 	return (1);
+}
+
+t_stack	*ft_iter_stop(t_stack *stk, t_stack *last)
+{
+	while (stk)
+	{
+		if (stk->next == last)
+			return (stk);
+		stk = stk->next;
+	}
+	return (stk);
 }
