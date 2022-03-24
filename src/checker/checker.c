@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:08:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/25 00:27:32 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/03/25 03:48:55 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ int	main(int argc, char **argv)
 		if (!checker(&stka, &stkb, &str))
 			return (error_message(&stka, &stkb, 0));
 	}
+	freestr(&str);
 	return (sorted_message(&stka, &stkb));
 }
