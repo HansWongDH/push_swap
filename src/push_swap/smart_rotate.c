@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:11:59 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/23 16:17:23 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/04/05 12:44:35 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	rot_a(t_stack **stk, int pivot, t_add *a)
 	}
 	else
 		while ((*stk)->num >= pivot)
-			rr_ab(stk);
+			rr_ab(stk, 0);
 	return (1);
 }
 
@@ -62,11 +62,11 @@ int	rot_b(t_stack **stk, int pivot, t_add *b)
 	}
 	else
 		while ((*stk)->num < pivot)
-			rr_ab(stk);
+			rr_ab(stk, 0);
 	return (1);
 }
 
-int	rotation(t_stack **stka, t_stack **stkb, t_add **a, int pivot)
+int	rotation_a(t_stack **stka, t_stack **stkb, t_add **a, int pivot)
 {
 	int		len;
 	int		i;
@@ -81,6 +81,27 @@ int	rotation(t_stack **stka, t_stack **stkb, t_add **a, int pivot)
 			(*a)->len -= p_ab(stka, stkb);
 		else if (!(*a)->tail)
 			rot_a(stka, pivot, *a);
+		else if (*stka != last)
+			i += r_ab(stka);
+	}
+	return (i);
+}
+
+int	rotation_b(t_stack **stka, t_stack **stkb, t_add **b, int pivot)
+{
+	int		len;
+	int		i;
+	t_stack	*last;
+
+	last = ft_iter_stop(*stka, (*b)->tail);
+	len = (*b)->len;
+	i = 0;
+	while (len-- > 0)
+	{
+		if ((*stka)->num >= pivot)
+			(*b)->len -= p_ab(stka, stkb);
+		else if (!(*b)->tail && (*b)->len > 3)
+			rot_b(stka, pivot, *b);
 		else if (*stka != last)
 			i += r_ab(stka);
 	}

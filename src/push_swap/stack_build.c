@@ -6,26 +6,11 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:28:22 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/25 03:38:21 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/04/05 12:27:59 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	free_arr(char ***arr, t_stack **stka, t_stack **stkb)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while(*arr[i])
-// 	{
-
-// 		free(*arr[i]);
-// 		i++;
-// 	}
-// 	free(*arr);
-// 	return(error_message(stka, stkb, 0));
-// }
 
 int	stack_build(int argc, char **argv, t_stack **stka, t_stack **stkb)
 {
@@ -52,4 +37,15 @@ int	stack_build(int argc, char **argv, t_stack **stka, t_stack **stkb)
 		free(hold);
 	}
 	return (1);
+}
+
+t_stack	*ft_iter_stop(t_stack *stk, t_stack *last)
+{
+	while (stk)
+	{
+		if (stk->next == last)
+			return (stk);
+		stk = stk->next;
+	}
+	return (stk);
 }

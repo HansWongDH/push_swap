@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:25:18 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/25 00:54:20 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/04/05 13:00:18 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ t_stack	*partition_a(t_stack **stka, t_stack **stkb, t_add **a)
 
 	pivot = find_median(*stka, (*a)->len);
 	tail = *stkb;
-	i = rotation(stka, stkb, a, pivot);
+	i = rotation_a(stka, stkb, a, pivot);
 	while (i-- > 0 && (*a)->tail)
 	{
 		if ((*stka)->num == pivot && (*a)->len > 3)
 			(*a)->len -= p_ab(stka, stkb);
-		rr_ab(stka);
+		rr_ab(stka, 0);
 	}
 	return (tail);
 }
@@ -43,27 +43,26 @@ t_stack	*partition_a(t_stack **stka, t_stack **stkb, t_add **a)
 t_stack	*partition_b(t_stack **stka, t_stack **stkb, t_add **b)
 {
 	t_stack	*tail;
-	t_stack	*last;
 	int		i;
-	int		len;
 	int		pivot;
 
-	last = ft_iter_stop(*stka, (*b)->tail);
-	len = (*b)->len;
-	pivot = find_median(*stka, len);
+	pivot = find_median(*stka, (*b)->len);
 	i = 0;
 	tail = *stkb;
-	while (len-- > 0)
+	i = rotation_b(stka, stkb, b, pivot);
+	if (i > 0 && ft_stacksize_n(*stkb, tail) == 3 && tail && (*b)->tail)
 	{
-		if ((*stka)->num >= pivot)
-			(*b)->len -= p_ab(stka, stkb);
-		else if (!(*b)->tail && (*b)->len > 3)
-			rot_b(stka, pivot, *b);
-		else if (*stka != last)
-			i += r_ab(stka);
+		if (check_three_case(stkb, tail))
+		{
+			(*b)->rr = 1;
+			i--;
+		}
 	}
-	while (i-- > 0 && (*b)->tail)
-		rr_ab(stka);
+	while (i > 0 && (*b)->tail)
+	{
+		rr_ab(stka, 0);
+		i--;
+	}
 	return (tail);
 }
 
@@ -97,7 +96,7 @@ void	sort(t_stack **stka, t_stack **stkb, t_add **a, t_add **b)
 		if ((*a)->len > 3)
 			sorting(stka, stkb, a, b);
 		else if ((*a)->len == 3)
-			three_case_part(stka, (*a)->tail);
+			three_case_p(stka, stkb, (*a)->tail, b);
 		else if ((*a)->len == 2)
 			s_ab(stka);
 	}

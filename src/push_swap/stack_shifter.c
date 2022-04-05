@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:40:01 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 20:08:43 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/04/05 12:35:13 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	s_ab(t_stack **stk)
 	return (1);
 }
 
-int	rr_ab(t_stack **stack)
+int	rr_ab(t_stack **stack, int i)
 {
 	t_stack	*temp;
 	t_stack	*last;
@@ -100,17 +100,15 @@ int	rr_ab(t_stack **stack)
 	last2->next = NULL;
 	*stack = last;
 	last->next = temp;
-	ft_putstr_fd(str, 1);
+	if (i == 0)
+		ft_putstr_fd(str, 1);
 	return (1);
 }
 
-t_stack	*ft_iter_stop(t_stack *stk, t_stack *last)
+int	rr_r(t_stack **stka, t_stack **stkb)
 {
-	while (stk)
-	{
-		if (stk->next == last)
-			return (stk);
-		stk = stk->next;
-	}
-	return (stk);
+	rr_ab(stka, 1);
+	rr_ab(stkb, 1);
+	ft_putstr_fd("rrr\n", 1);
+	return (-1);
 }

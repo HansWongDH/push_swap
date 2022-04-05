@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:05:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/24 18:30:33 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/04/05 12:35:37 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_add	*ft_new_add(t_stack *tail, int len)
 	if (!new)
 		return (NULL);
 	new->len = len;
+	new->rr = 0;
 	new->tail = tail;
 	new->nxt = NULL;
 	return (new);

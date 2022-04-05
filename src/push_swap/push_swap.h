@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:00:59 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/25 01:19:21 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/04/05 12:59:48 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_stack {
 
 typedef struct s_add {
 	int				len;
+	int				rr;
 	struct s_stack	*tail;
 	struct s_add	*nxt;
 }	t_add;
@@ -40,13 +41,14 @@ t_stack	*ft_stacklast(t_stack *stk);
 t_stack	*ft_iter_stop(t_stack *stk, t_stack *last);
 int		r_ab(t_stack **stack);
 int		p_ab(t_stack **stacka, t_stack **stackb);
-int		rr_ab(t_stack **stack);
+int		rr_ab(t_stack **stack, int i);
 int		s_ab(t_stack **stk);
+int		rr_r(t_stack **stka, t_stack **stkb);
 t_add	*ft_new_add(t_stack *tail, int len);
 void	ft_add_front(t_add **list, t_add *new);
 t_stack	*find_highest(t_stack *stk, t_stack *last);
 t_stack	*find_lowest(t_stack *stk, t_stack *last);
-void	three_case_part(t_stack **stk, t_stack *last);
+void	three_case_p(t_stack **stk, t_stack **stkb, t_stack *last, t_add **b);
 void	three_case(t_stack **stk, t_stack *last);
 t_stack	*partition_a(t_stack **stka, t_stack **stkb, t_add **b);
 t_stack	*partition_b(t_stack **stka, t_stack **stkb, t_add **b);
@@ -58,12 +60,15 @@ int		ft_checkdup(t_stack *stack);
 int		issortedtail(t_stack *stk, int len);
 int		rot_a(t_stack **stk, int pivot, t_add *a);
 int		rot_b(t_stack **stk, int pivot, t_add *b);
-int		rotation(t_stack **stka, t_stack **stkb, t_add **a, int pivot);
+int		rotation_a(t_stack **stka, t_stack **stkb, t_add **a, int pivot);
+int		rotation_b(t_stack **stka, t_stack **stkb, t_add **b, int pivot);
 int		ft_checkdigit(char *str);
 void	free_stack(t_stack **stacka, t_stack **stackb);
 int		error_message(t_stack **stka, t_stack **stkb, int i);
 void	free_add(t_add **add_a, t_add **add_b);
 int		ft_isover(char *str);
 int		stack_build(int argc, char **argv, t_stack **stka, t_stack **stkb);
+int		check_three_case(t_stack **stk, t_stack *last);
+void	rrr_or_rra(t_stack **stka, t_stack **stkb, t_add **b);
 
 #endif
