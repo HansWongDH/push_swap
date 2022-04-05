@@ -6,7 +6,7 @@
 #    By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 18:02:33 by wding-ha          #+#    #+#              #
-#    Updated: 2022/03/25 17:15:14 by wding-ha         ###   ########.fr        #
+#    Updated: 2022/04/06 01:42:32 by wding-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,6 @@ fclean: clean
 	@$(RM) $(NAME) $(B_NAME)
 	@make fclean -C $(LIBFT_DIR)
 
-re: fclean
+re: fclean all
 
 .PHONY: all clean fclean re

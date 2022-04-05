@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:47:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2022/03/25 01:28:33 by wding-ha         ###   ########.fr       */
+/*   Updated: 2022/04/06 01:40:49 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ int	error_message(t_stack **stka, t_stack **stkb, int i)
 		free_stack(stka, stkb);
 	if (i == 0)
 		write(2, "Error\n", 6);
-	return (0);
+	exit(0);
 }
