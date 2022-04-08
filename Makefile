@@ -6,7 +6,7 @@
 #    By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 18:02:33 by wding-ha          #+#    #+#              #
-#    Updated: 2022/04/06 01:42:32 by wding-ha         ###   ########.fr        #
+#    Updated: 2022/04/08 11:37:50 by wding-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ $(B_NAME):		$(B_OBJS)
 	@$(CC) $(CFLAGS) $(B_INC) -o $(B_NAME) $(B_MAIN) $(B_OBJS) $(LIB)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@ -s
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 clean:
 	@$(RM) $(OBJS) $(B_OBJS)
 	@make clean -C $(LIBFT_DIR)
