@@ -6,7 +6,7 @@
 #    By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 18:02:33 by wding-ha          #+#    #+#              #
-#    Updated: 2022/04/08 11:37:50 by wding-ha         ###   ########.fr        #
+#    Updated: 2022/04/08 11:43:55 by wding-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ B_NAME			= checker
 #######
 
 CC				= gcc
-CFLAGS			= -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS			= -Wall -Wextra -Werror
 RM				= rm -f
 
 ##################
